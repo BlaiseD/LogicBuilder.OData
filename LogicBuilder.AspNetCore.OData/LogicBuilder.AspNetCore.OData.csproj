@@ -1,7 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>LogicBuilder.AspNetCore.OData</RootNamespace>
+    <PackageId>LogicBuilder.AspNetCore.OData</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>BlaiseD</Authors>
+    <Description>Creates LINQ expressions from ODataQueryOptions.</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>First Release.</PackageReleaseNotes>
+    <PackageTags>linq expressions odata efcore</PackageTags>
+    <Copyright>Copyright © BPS 2019</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <RepositoryUrl>https://github.com/BlaiseD/LogicBuilder.OData</RepositoryUrl>
+    <PackageLicense>https://github.com/BlaiseD/LogicBuilder.OData/blob/master/LICENSE</PackageLicense>
+    <PackageProjectUrl>https://github.com/BlaiseD/LogicBuilder.OData</PackageProjectUrl>
+    <AssemblyOriginatorKeyFile>..\LogicBuilder.Rules.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
