@@ -2,10 +2,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DAL.EFCore
+namespace DAL
 {
-    [Table("TBuilders")]
-    public class TBuilder
+    public class TCity
     {
         [Column("Id")]
         [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -13,10 +12,5 @@ namespace DAL.EFCore
 
         [Column("Name")]
         public String Name { get; set; }
-
-        [ForeignKey("City")]
-        public Int32 CityId { get; set; }
-
-        public TCity City { get; set; }
     }
 }

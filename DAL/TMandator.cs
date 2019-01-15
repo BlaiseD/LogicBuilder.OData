@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DAL.EFCore
+namespace DAL
 {
     [Table("G_TMandator")]
     public class TMandator
     {
-
         [Column("pkMandatorID")]
         [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Int32 Id { get; set; }

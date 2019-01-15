@@ -3,15 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicBuilder.AspNetCore.OData", "LogicBuilder.AspNetCore.OData\LogicBuilder.AspNetCore.OData.csproj", "{E0B5539F-DE46-4141-9AB2-08B864712E4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicBuilder.AspNetCore.OData", "LogicBuilder.AspNetCore.OData\LogicBuilder.AspNetCore.OData.csproj", "{E0B5539F-DE46-4141-9AB2-08B864712E4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicBuilder.OData.EFCore", "LogicBuilder.OData.EFCore\LogicBuilder.OData.EFCore.csproj", "{31BD3F0C-9811-488E-959E-522156D0AEE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicBuilder.OData.EFCore", "LogicBuilder.OData.EFCore\LogicBuilder.OData.EFCore.csproj", "{31BD3F0C-9811-488E-959E-522156D0AEE9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL.EFCore", "DAL.EFCore\DAL.EFCore.csproj", "{77D5DE5A-331E-4EDF-A5DB-0B31795E6075}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.OData", "Domain.OData\Domain.OData.csproj", "{0DF413A6-5334-4999-B368-126A6E91F922}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI.OData.EFCore", "WebAPI.OData.EFCore\WebAPI.OData.EFCore.csproj", "{545D2E0A-4041-43A2-A6D0-08839D1E4AA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicBuilder.AspNetCore.OData.EF6", "LogicBuilder.AspNetCore.OData.EF6\LogicBuilder.AspNetCore.OData.EF6.csproj", "{2A80E6E7-7EED-47ED-8F83-40924C4B9DD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI.AspNetCore.OData.EF6", "WebAPI.AspNetCore.OData.EF6\WebAPI.AspNetCore.OData.EF6.csproj", "{4661B527-CC11-49D0-A16A-EAAA4D193486}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{D926A5AC-B4DC-47A3-B302-B3DF2A38E5D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicBuilder.AspNet.OData", "LogicBuilder.AspNet.OData\LogicBuilder.AspNet.OData.csproj", "{5BD4566B-773A-4ED3-B4BA-F978515CD76D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicBuilder.AspNet.OData.EF6", "LogicBuilder.AspNet.OData.EF6\LogicBuilder.AspNet.OData.EF6.csproj", "{AC091E3B-342F-4CC6-8463-5A2B9F9637E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI.AspNet.OData.EF6", "WebAPI.AspNet.OData.EF6\WebAPI.AspNet.OData.EF6.csproj", "{B4405E32-B6A5-4947-90D8-8EFF15CDDA39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +51,30 @@ Global
 		{545D2E0A-4041-43A2-A6D0-08839D1E4AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{545D2E0A-4041-43A2-A6D0-08839D1E4AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{545D2E0A-4041-43A2-A6D0-08839D1E4AA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A80E6E7-7EED-47ED-8F83-40924C4B9DD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A80E6E7-7EED-47ED-8F83-40924C4B9DD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A80E6E7-7EED-47ED-8F83-40924C4B9DD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A80E6E7-7EED-47ED-8F83-40924C4B9DD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4661B527-CC11-49D0-A16A-EAAA4D193486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4661B527-CC11-49D0-A16A-EAAA4D193486}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4661B527-CC11-49D0-A16A-EAAA4D193486}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4661B527-CC11-49D0-A16A-EAAA4D193486}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D926A5AC-B4DC-47A3-B302-B3DF2A38E5D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D926A5AC-B4DC-47A3-B302-B3DF2A38E5D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D926A5AC-B4DC-47A3-B302-B3DF2A38E5D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D926A5AC-B4DC-47A3-B302-B3DF2A38E5D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BD4566B-773A-4ED3-B4BA-F978515CD76D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BD4566B-773A-4ED3-B4BA-F978515CD76D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BD4566B-773A-4ED3-B4BA-F978515CD76D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BD4566B-773A-4ED3-B4BA-F978515CD76D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC091E3B-342F-4CC6-8463-5A2B9F9637E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC091E3B-342F-4CC6-8463-5A2B9F9637E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC091E3B-342F-4CC6-8463-5A2B9F9637E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC091E3B-342F-4CC6-8463-5A2B9F9637E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4405E32-B6A5-4947-90D8-8EFF15CDDA39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4405E32-B6A5-4947-90D8-8EFF15CDDA39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4405E32-B6A5-4947-90D8-8EFF15CDDA39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4405E32-B6A5-4947-90D8-8EFF15CDDA39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

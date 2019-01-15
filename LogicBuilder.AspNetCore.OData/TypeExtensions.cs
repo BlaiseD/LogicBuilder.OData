@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace LogicBuilder.AspNetCore.OData
+namespace LogicBuilder.AspNet.OData
 {
     internal static class TypeExtensions
     {

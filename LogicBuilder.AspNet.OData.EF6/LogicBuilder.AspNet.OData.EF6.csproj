@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>LogicBuilder.OData.EFCore</RootNamespace>
-    <PackageId>LogicBuilder.OData.EFCore</PackageId>
+    <TargetFramework>net461</TargetFramework>
+    <RootNamespace>LogicBuilder.OData.EF6</RootNamespace>
+    <PackageId>LogicBuilder.AspNet.OData.EF6</PackageId>
     <PackageVersion>1.0.1</PackageVersion>
     <Authors>BlaiseD</Authors>
     <Description>Creates LINQ expressions from ODataQueryOptions and executes the query.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Reconciled nreaking changes from renamed root namespace in LogicBuilder.AspNetCore.OData.</PackageReleaseNotes>
+    <PackageReleaseNotes>First Release.</PackageReleaseNotes>
     <PackageTags>linq expressions odata efcore</PackageTags>
     <Copyright>Copyright © BPS 2019</Copyright>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -21,9 +21,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\LogicBuilder.AspNetCore.OData.EF6\QueryableExtensions.cs" Link="QueryableExtensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.ExpressionMapping" Version="2.0.0" />
-    <PackageReference Include="LogicBuilder.AspNetCore.OData" Version="1.0.1" />
-    <PackageReference Include="LogicBuilder.Expressions.EntityFrameworkCore" Version="1.0.0" />
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
+    <PackageReference Include="LogicBuilder.AspNet.OData" Version="1.0.1" />
   </ItemGroup>
 
 </Project>

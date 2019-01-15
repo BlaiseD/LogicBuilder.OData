@@ -2,9 +2,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DAL.EFCore
+namespace DAL
 {
-    [Table("TBuilders")]
     public class TBuilder
     {
         [Column("Id")]

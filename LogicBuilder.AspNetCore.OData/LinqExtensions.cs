@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 
-namespace LogicBuilder.AspNetCore.OData
+namespace LogicBuilder.AspNet.OData
 {
     public static class LinqExtensions
     {

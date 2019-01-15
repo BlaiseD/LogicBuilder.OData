@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LogicBuilder.AspNetCore.OData.Properties {
+namespace LogicBuilder.AspNet.OData.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace LogicBuilder.AspNetCore.OData.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LogicBuilder.AspNetCore.OData.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LogicBuilder.AspNet.OData.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

@@ -2,12 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DAL.EFCore
+namespace DAL
 {
     [Table("OB_TBuilding")]
     public class TBuilding
     {
-
         [Column("pkBID")]
         [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Int32 Id { get; set; }
