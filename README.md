@@ -1,7 +1,7 @@
 # LogicBuilder.OData
 Creates LINQ expressions from ODataQueryOptions and executes the query.
 
-To use, call the Get extension method from your OData controller.  IMapper an AutoMapper interface.
+To use, call the Get extension method from your OData controller.  IMapper is an AutoMapper interface.
 
 ```c#
 public static ICollection<TModel> Get<TModel, TData>(this IQueryable<TData> query, IMapper mapper, ODataQueryOptions<TModel> options);
