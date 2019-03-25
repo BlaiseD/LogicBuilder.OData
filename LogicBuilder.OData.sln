@@ -13,17 +13,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.OData", "Domain.ODat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI.OData.EFCore", "WebAPI.OData.EFCore\WebAPI.OData.EFCore.csproj", "{545D2E0A-4041-43A2-A6D0-08839D1E4AA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicBuilder.AspNetCore.OData.EF6", "LogicBuilder.AspNetCore.OData.EF6\LogicBuilder.AspNetCore.OData.EF6.csproj", "{2A80E6E7-7EED-47ED-8F83-40924C4B9DD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicBuilder.AspNetCore.OData.EF6", "LogicBuilder.AspNetCore.OData.EF6\LogicBuilder.AspNetCore.OData.EF6.csproj", "{2A80E6E7-7EED-47ED-8F83-40924C4B9DD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI.AspNetCore.OData.EF6", "WebAPI.AspNetCore.OData.EF6\WebAPI.AspNetCore.OData.EF6.csproj", "{4661B527-CC11-49D0-A16A-EAAA4D193486}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI.AspNetCore.OData.EF6", "WebAPI.AspNetCore.OData.EF6\WebAPI.AspNetCore.OData.EF6.csproj", "{4661B527-CC11-49D0-A16A-EAAA4D193486}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{D926A5AC-B4DC-47A3-B302-B3DF2A38E5D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{D926A5AC-B4DC-47A3-B302-B3DF2A38E5D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicBuilder.AspNet.OData", "LogicBuilder.AspNet.OData\LogicBuilder.AspNet.OData.csproj", "{5BD4566B-773A-4ED3-B4BA-F978515CD76D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicBuilder.AspNet.OData", "LogicBuilder.AspNet.OData\LogicBuilder.AspNet.OData.csproj", "{5BD4566B-773A-4ED3-B4BA-F978515CD76D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicBuilder.AspNet.OData.EF6", "LogicBuilder.AspNet.OData.EF6\LogicBuilder.AspNet.OData.EF6.csproj", "{AC091E3B-342F-4CC6-8463-5A2B9F9637E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicBuilder.AspNet.OData.EF6", "LogicBuilder.AspNet.OData.EF6\LogicBuilder.AspNet.OData.EF6.csproj", "{AC091E3B-342F-4CC6-8463-5A2B9F9637E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI.AspNet.OData.EF6", "WebAPI.AspNet.OData.EF6\WebAPI.AspNet.OData.EF6.csproj", "{B4405E32-B6A5-4947-90D8-8EFF15CDDA39}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1A2B189E-E875-4277-8FD2-E1455B89DAA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

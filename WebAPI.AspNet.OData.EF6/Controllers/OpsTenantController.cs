@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace WebAPI.AspNet.OData.EF6.Controllers
@@ -23,9 +24,9 @@ namespace WebAPI.AspNet.OData.EF6.Controllers
 
         [HttpGet]
         [EnableQuery(MaxExpansionDepth = 5)]
-        public IHttpActionResult Get(ODataQueryOptions<CoreBuilding> options)
+        public async Task<IHttpActionResult> Get(ODataQueryOptions<CoreBuilding> options)
         {
-            return Ok(Repository.BuildingSet.Get(Mapper.Instance, options));
+            return Ok(await Repository.BuildingSet.GetAsync(Mapper.Instance, options));
         }
     }
 
@@ -40,9 +41,9 @@ namespace WebAPI.AspNet.OData.EF6.Controllers
 
         [HttpGet]
         [EnableQuery(MaxExpansionDepth = 5)]
-        public IHttpActionResult Get(ODataQueryOptions<OpsTenant> options)
+        public async Task<IHttpActionResult> Get(ODataQueryOptions<OpsTenant> options)
         {
-            return Ok(Repository.MandatorSet.Get(Mapper.Instance, options));
+            return Ok(await Repository.MandatorSet.GetAsync(Mapper.Instance, options));
         }
     }
 }

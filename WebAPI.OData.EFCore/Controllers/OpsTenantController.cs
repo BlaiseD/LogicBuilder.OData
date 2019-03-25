@@ -5,6 +5,8 @@ using LogicBuilder.OData.EFCore;
 using Microsoft.AspNet.OData;
 using Microsoft.AspNet.OData.Query;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace WebAPI.OData.EFCore.Controllers
 {
@@ -20,9 +22,9 @@ namespace WebAPI.OData.EFCore.Controllers
 
         [HttpGet]
         [EnableQuery(MaxExpansionDepth = 5)]
-        public IActionResult Get(ODataQueryOptions<OpsTenant> options)
+        public async Task<IActionResult> Get(ODataQueryOptions<OpsTenant> options)
         {
-            return Ok(Repository.MandatorSet.Get(Mapper.Instance, options));
+            return Ok(await Repository.MandatorSet.GetAsync(Mapper.Instance, options));
         }
     }
 
@@ -37,9 +39,9 @@ namespace WebAPI.OData.EFCore.Controllers
 
         [HttpGet]
         [EnableQuery(MaxExpansionDepth = 5)]
-        public IActionResult Get(ODataQueryOptions<CoreBuilding> options)
+        public async Task<IActionResult> Get(ODataQueryOptions<CoreBuilding> options)
         {
-            return Ok(Repository.BuildingSet.Get(Mapper.Instance, options));
+            return Ok(await Repository.BuildingSet.GetAsync(Mapper.Instance, options));
         }
     }
 }

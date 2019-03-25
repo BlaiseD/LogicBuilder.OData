@@ -3,15 +3,15 @@
   <PropertyGroup>
     <TargetFramework>net461</TargetFramework>
     <PackageId>LogicBuilder.AspNet.OData</PackageId>
-    <PackageVersion>1.0.1</PackageVersion>
+    <PackageVersion>1.0.2</PackageVersion>
     <Authors>BlaiseD</Authors>
     <Description>Creates LINQ expressions from ODataQueryOptions.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <PackageReleaseNotes>Added support for async requests.  Added GetQueryAsync methods to return an IQueryable instead of an ICollection.</PackageReleaseNotes>
     <PackageTags>linq expressions odata ef</PackageTags>
     <Copyright>Copyright © BPS 2019</Copyright>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <FileVersion>1.0.2.0</FileVersion>
     <RepositoryUrl>https://github.com/BlaiseD/LogicBuilder.OData</RepositoryUrl>
     <PackageLicense>https://github.com/BlaiseD/LogicBuilder.OData/blob/master/LICENSE</PackageLicense>
     <PackageProjectUrl>https://github.com/BlaiseD/LogicBuilder.OData</PackageProjectUrl>
