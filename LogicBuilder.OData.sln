@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI.AspNet.OData.EF6", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1A2B189E-E875-4277-8FD2-E1455B89DAA5}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OData.EFCore.Tests", "OData.EFCore.Tests\OData.EFCore.Tests.csproj", "{9975ABFE-7B6F-4BAB-8D49-B47E22FF8BB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,9 +79,16 @@ Global
 		{B4405E32-B6A5-4947-90D8-8EFF15CDDA39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4405E32-B6A5-4947-90D8-8EFF15CDDA39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4405E32-B6A5-4947-90D8-8EFF15CDDA39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9975ABFE-7B6F-4BAB-8D49-B47E22FF8BB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9975ABFE-7B6F-4BAB-8D49-B47E22FF8BB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9975ABFE-7B6F-4BAB-8D49-B47E22FF8BB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9975ABFE-7B6F-4BAB-8D49-B47E22FF8BB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9975ABFE-7B6F-4BAB-8D49-B47E22FF8BB1} = {1A2B189E-E875-4277-8FD2-E1455B89DAA5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A37CF061-817B-4E40-ACB9-8D6E35107132}
