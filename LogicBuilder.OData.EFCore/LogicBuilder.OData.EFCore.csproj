@@ -4,15 +4,15 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>LogicBuilder.OData.EFCore</RootNamespace>
     <PackageId>LogicBuilder.OData.EFCore</PackageId>
-    <PackageVersion>1.0.2</PackageVersion>
+    <PackageVersion>1.0.3</PackageVersion>
     <Authors>BlaiseD</Authors>
     <Description>Creates LINQ expressions from ODataQueryOptions and executes the query.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Added support for async requests.  Added GetQueryAsync methods to return an IQueryable instead of an ICollection.</PackageReleaseNotes>
+    <PackageReleaseNotes>1) Update to fix "Argument types do not match" when mapping Expression.Condition filters. 2) Added a parameter to switch off null checking in OData filter expressions.</PackageReleaseNotes>
     <PackageTags>linq expressions odata efcore</PackageTags>
     <Copyright>Copyright © BPS 2019</Copyright>
-    <AssemblyVersion>1.0.2.0</AssemblyVersion>
-    <FileVersion>1.0.2.0</FileVersion>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
     <RepositoryUrl>https://github.com/BlaiseD/LogicBuilder.OData</RepositoryUrl>
     <PackageLicense>https://github.com/BlaiseD/LogicBuilder.OData/blob/master/LICENSE</PackageLicense>
     <PackageProjectUrl>https://github.com/BlaiseD/LogicBuilder.OData</PackageProjectUrl>
@@ -21,8 +21,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.ExpressionMapping" Version="2.0.0" />
-    <PackageReference Include="LogicBuilder.AspNetCore.OData" Version="1.0.2" />
+    <PackageReference Include="AutoMapper.Extensions.ExpressionMapping" Version="2.0.1" />
+    <PackageReference Include="LogicBuilder.AspNetCore.OData" Version="1.0.3" />
     <PackageReference Include="LogicBuilder.Expressions.EntityFrameworkCore" Version="1.0.0" />
   </ItemGroup>
 

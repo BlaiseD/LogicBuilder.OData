@@ -24,9 +24,9 @@ namespace LogicBuilder.OData.EFCore
         /// <param name="mapper"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static ICollection<TModel> Get<TModel, TData>(this IQueryable<TData> query, IMapper mapper, ODataQueryOptions<TModel> options)
+        public static ICollection<TModel> Get<TModel, TData>(this IQueryable<TData> query, IMapper mapper, ODataQueryOptions<TModel> options, HandleNullPropagationOption handleNullPropagation = HandleNullPropagationOption.Default)
             where TModel : class 
-            => Task.Run(async () => await query.GetAsync(mapper, options)).Result;
+            => Task.Run(async () => await query.GetAsync(mapper, options, handleNullPropagation)).Result;
 
         /// <summary>
         /// GetAsync
@@ -37,11 +37,11 @@ namespace LogicBuilder.OData.EFCore
         /// <param name="mapper"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static async Task<ICollection<TModel>> GetAsync<TModel, TData>(this IQueryable<TData> query, IMapper mapper, ODataQueryOptions<TModel> options)
+        public static async Task<ICollection<TModel>> GetAsync<TModel, TData>(this IQueryable<TData> query, IMapper mapper, ODataQueryOptions<TModel> options, HandleNullPropagationOption handleNullPropagation = HandleNullPropagationOption.Default)
             where TModel : class
         {
             ICollection<Expression<Func<IQueryable<TModel>, IIncludableQueryable<TModel, object>>>> includeExpressions = options.SelectExpand.GetIncludes().BuildIncludesExpressionCollection<TModel>()?.ToList();
-            Expression<Func<TModel, bool>> filter = options.Filter.ToFilterExpression<TModel>();
+            Expression<Func<TModel, bool>> filter = options.Filter.ToFilterExpression<TModel>(handleNullPropagation);
             Expression<Func<IQueryable<TModel>, IQueryable<TModel>>> queryableExpression = options.GetQueryableExpression();
 
             ICollection<TModel> collection = await query.GetAsync(mapper, filter, queryableExpression, includeExpressions);
@@ -49,11 +49,11 @@ namespace LogicBuilder.OData.EFCore
             return collection;
         }
 
-        public static async Task<IQueryable<TModel>> GetQueryAsync<TModel, TData>(this IQueryable<TData> query, IMapper mapper, ODataQueryOptions<TModel> options)
+        public static async Task<IQueryable<TModel>> GetQueryAsync<TModel, TData>(this IQueryable<TData> query, IMapper mapper, ODataQueryOptions<TModel> options, HandleNullPropagationOption handleNullPropagation = HandleNullPropagationOption.Default)
             where TModel : class
         {
             ICollection<Expression<Func<IQueryable<TModel>, IIncludableQueryable<TModel, object>>>> includeExpressions = options.SelectExpand.GetIncludes().BuildIncludesExpressionCollection<TModel>()?.ToList();
-            Expression<Func<TModel, bool>> filter = options.Filter.ToFilterExpression<TModel>();
+            Expression<Func<TModel, bool>> filter = options.Filter.ToFilterExpression<TModel>(handleNullPropagation);
             Expression<Func<IQueryable<TModel>, IQueryable<TModel>>> queryableExpression = options.GetQueryableExpression();
 
             return await query.GetQueryAsync(mapper, filter, queryableExpression, includeExpressions);

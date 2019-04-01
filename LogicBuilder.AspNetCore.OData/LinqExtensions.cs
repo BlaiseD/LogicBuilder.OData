@@ -18,13 +18,13 @@ namespace LogicBuilder.AspNet.OData
         /// <typeparam name="T"></typeparam>
         /// <param name="filterOption"></param>
         /// <returns></returns>
-        public static Expression<Func<T, bool>> ToFilterExpression<T>(this FilterQueryOption filterOption)
+        public static Expression<Func<T, bool>> ToFilterExpression<T>(this FilterQueryOption filterOption, HandleNullPropagationOption handleNullPropagation = HandleNullPropagationOption.Default)
         {
             if (filterOption == null)
                 return null;
 
             IQueryable queryable = Enumerable.Empty<T>().AsQueryable();
-            queryable = filterOption.ApplyTo(queryable, new ODataQuerySettings());
+            queryable = filterOption.ApplyTo(queryable, new ODataQuerySettings() { HandleNullPropagation = handleNullPropagation });
             MethodCallExpression whereMethodCallExpression = (MethodCallExpression)queryable.Expression;
 
             return (Expression<Func<T, bool>>)(whereMethodCallExpression.Arguments[1].Unquote() as LambdaExpression);

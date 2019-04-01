@@ -14,7 +14,6 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OData.Edm;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -193,34 +192,18 @@ namespace OData.EFCore.Tests
             }
         }
 
-        //[Fact]
-        //public async void Building_expand_Builder_Tenant_expand_City_filter_on_nested_nested_property_and_order_by()
-        //{//Problem seems to be a combination of EF Core and Expression.Condition
-        // //{$it => (IIF((IIF(($it.Builder == null), null, $it.Builder.City) == null), null, $it.Builder.City.Name) == value(Microsoft.AspNet.OData.Query.Expressions.LinqParameterContainer+TypedLinqParameterContainer`1[System.String]).TypedProperty)}
-        //    Test(await Get<CoreBuilding, TBuilding>("/corebuilding?$top=5&$expand=Builder($expand=City),Tenant&$filter=Builder/City/Name eq 'Leeds'"));
+        [Fact]
+        public async void Building_expand_Builder_Tenant_expand_City_filter_on_nested_nested_property()
+        {
+            Test(await Get<CoreBuilding, TBuilding>("/corebuilding?$top=5&$expand=Builder($expand=City),Tenant&$filter=Builder/City/Name eq 'Leeds'"));
 
-        //    //Test
-        //    //(
-        //    //    await serviceProvider.GetRequiredService<MyDbContext>().Set<TBuilding>().GetAsync
-        //    //    (
-        //    //        serviceProvider.GetRequiredService<IMapper>(), 
-        //    //        b => b.Builder.City.Name == "Leeds", 
-        //    //        q => q.Take(5), 
-        //    //        new List<System.Linq.Expressions.Expression<Func<IQueryable<CoreBuilding>, Microsoft.EntityFrameworkCore.Query.IIncludableQueryable<CoreBuilding, object>>>>
-        //    //        {
-        //    //            q => q.Include(a => a.Builder).ThenInclude(a => a.City),
-        //    //            q => q.Include(a => a.Tenant)
-        //    //        }
-        //    //    )
-        //    //);
-
-        //    void Test(ICollection<CoreBuilding> collection)
-        //    {
-        //        Assert.True(collection.Count == 1);
-        //        Assert.True(collection.First().Builder.City.Name == "Leeds");
-        //        Assert.True(collection.First().Name == "Two L2");
-        //    }
-        //}
+            void Test(ICollection<CoreBuilding> collection)
+            {
+                Assert.True(collection.Count == 1);
+                Assert.True(collection.First().Builder.City.Name == "Leeds");
+                Assert.True(collection.First().Name == "Two L2");
+            }
+        }
 
         private async Task<ICollection<TModel>> Get<TModel, TData>(string query) where TModel : class where TData : class
         {
@@ -241,7 +224,8 @@ namespace OData.EFCore.Tests
                         serviceProvider, 
                         serviceProvider.GetRequiredService<IApplicationBuilder>(),
                         serviceProvider.GetRequiredService<IRouteBuilder>()
-                    )
+                    ),
+                    HandleNullPropagationOption.False
                 );
             }
         }

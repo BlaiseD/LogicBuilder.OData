@@ -24,7 +24,7 @@ namespace WebAPI.OData.EFCore.Controllers
         [EnableQuery(MaxExpansionDepth = 5)]
         public async Task<IActionResult> Get(ODataQueryOptions<OpsTenant> options)
         {
-            return Ok(await Repository.MandatorSet.GetAsync(Mapper.Instance, options));
+            return Ok(await Repository.MandatorSet.GetAsync(Mapper.Instance, options, HandleNullPropagationOption.False));
         }
     }
 
@@ -41,7 +41,7 @@ namespace WebAPI.OData.EFCore.Controllers
         [EnableQuery(MaxExpansionDepth = 5)]
         public async Task<IActionResult> Get(ODataQueryOptions<CoreBuilding> options)
         {
-            return Ok(await Repository.BuildingSet.GetAsync(Mapper.Instance, options));
+            return Ok(await Repository.BuildingSet.GetAsync(Mapper.Instance, options, HandleNullPropagationOption.False));
         }
     }
 }

@@ -46,8 +46,8 @@
     <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="AutoMapper.Extensions.ExpressionMapping, Version=2.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.Extensions.ExpressionMapping.2.0.0\lib\net461\AutoMapper.Extensions.ExpressionMapping.dll</HintPath>
+    <Reference Include="AutoMapper.Extensions.ExpressionMapping, Version=2.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.Extensions.ExpressionMapping.2.0.1\lib\net461\AutoMapper.Extensions.ExpressionMapping.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -55,11 +55,11 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="LogicBuilder.AspNet.OData, Version=1.0.2.0, Culture=neutral, PublicKeyToken=646893bec0268535, processorArchitecture=MSIL">
-      <HintPath>..\packages\LogicBuilder.AspNet.OData.1.0.2\lib\net461\LogicBuilder.AspNet.OData.dll</HintPath>
+    <Reference Include="LogicBuilder.AspNet.OData, Version=1.0.3.0, Culture=neutral, PublicKeyToken=646893bec0268535, processorArchitecture=MSIL">
+      <HintPath>..\packages\LogicBuilder.AspNet.OData.1.0.3\lib\net461\LogicBuilder.AspNet.OData.dll</HintPath>
     </Reference>
-    <Reference Include="LogicBuilder.AspNet.OData.EF6, Version=1.0.2.0, Culture=neutral, PublicKeyToken=646893bec0268535, processorArchitecture=MSIL">
-      <HintPath>..\packages\LogicBuilder.AspNet.OData.EF6.1.0.2\lib\net461\LogicBuilder.AspNet.OData.EF6.dll</HintPath>
+    <Reference Include="LogicBuilder.AspNet.OData.EF6, Version=1.0.3.0, Culture=neutral, PublicKeyToken=646893bec0268535, processorArchitecture=MSIL">
+      <HintPath>..\packages\LogicBuilder.AspNet.OData.EF6.1.0.3\lib\net461\LogicBuilder.AspNet.OData.EF6.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.OData, Version=7.1.0.21120, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.OData.7.1.0\lib\net45\Microsoft.AspNet.OData.dll</HintPath>
@@ -140,7 +140,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
