@@ -15,9 +15,12 @@ namespace WebAPI.AspNet.OData.EF6.Controllers
 {
     public class CoreBuildingController : ODataController
     {
-        public CoreBuildingController()
+        private readonly IMapper _mapper;
+
+        public CoreBuildingController(IMapper mapper)
         {
             Repository = new DAL.MyDbContext();
+            this._mapper = mapper;
         }
 
         DAL.MyDbContext Repository { get; set; }
@@ -26,15 +29,18 @@ namespace WebAPI.AspNet.OData.EF6.Controllers
         [EnableQuery(MaxExpansionDepth = 5)]
         public async Task<IHttpActionResult> Get(ODataQueryOptions<CoreBuilding> options)
         {
-            return Ok(await Repository.BuildingSet.GetAsync(Mapper.Instance, options));
+            return Ok(await Repository.BuildingSet.GetAsync(this._mapper, options));
         }
     }
 
     public class OpsTenantController : ODataController
     {
-        public OpsTenantController()
+        private readonly IMapper _mapper;
+
+        public OpsTenantController(IMapper mapper)
         {
             Repository = new DAL.MyDbContext();
+            this._mapper = mapper;
         }
 
         DAL.MyDbContext Repository { get; set; }
@@ -43,7 +49,7 @@ namespace WebAPI.AspNet.OData.EF6.Controllers
         [EnableQuery(MaxExpansionDepth = 5)]
         public async Task<IHttpActionResult> Get(ODataQueryOptions<OpsTenant> options)
         {
-            return Ok(await Repository.MandatorSet.GetAsync(Mapper.Instance, options));
+            return Ok(await Repository.MandatorSet.GetAsync(this._mapper, options));
         }
     }
 }

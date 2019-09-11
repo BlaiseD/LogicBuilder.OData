@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Unity;
 
 namespace WebAPI.AspNet.OData.EF6
 {
@@ -35,9 +36,15 @@ namespace WebAPI.AspNet.OData.EF6
             builder.EntitySet<OpsCity>(nameof(OpsCity));
             config.MapODataServiceRoute("odata", "", builder.GetEdmModel());
 
-            Mapper.Initialize(cfg => {
-                cfg.AddProfiles(typeof(WebApiConfig));
+            var mapperConfig = new MapperConfiguration(cfg => {
+                cfg.AddMaps(typeof(WebApiConfig));
             });
+
+            var mapper = mapperConfig.CreateMapper();
+
+            var container = new UnityContainer();
+            container.RegisterInstance<IMapper>(mapperConfig.CreateMapper());
+            config.DependencyResolver = new UnityResolver(container);
         }
     }
 }

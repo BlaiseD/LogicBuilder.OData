@@ -33,6 +33,16 @@ namespace WebAPI.AspNetCore.OData.EF6
             MyDbContext.DSN = @"data source=.\SQL2014;initial catalog=Issue3;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
             services.AddOData();
 
+            services.AddSingleton<AutoMapper.IConfigurationProvider>
+            (
+                new MapperConfiguration(cfg =>
+                {
+                    cfg.AddMaps(typeof(Startup).Assembly);
+                    cfg.AllowNullCollections = true;
+                })
+            )
+            .AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
+
             services.AddMvc(options =>
             {
                 // https://blogs.msdn.microsoft.com/webdev/2018/08/27/asp-net-core-2-2-0-preview1-endpoint-routing/
@@ -66,10 +76,6 @@ namespace WebAPI.AspNetCore.OData.EF6
                 r.Count().Filter().OrderBy().Expand().Select().MaxTop(null);
                 r.MapODataServiceRoute("odata", "", model, new DefaultODataBatchHandler());
 
-            });
-
-            Mapper.Initialize(cfg => {
-                cfg.AddProfiles(typeof(Startup));
             });
         }
     }

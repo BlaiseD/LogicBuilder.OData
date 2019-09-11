@@ -12,9 +12,12 @@ namespace WebAPI.OData.EFCore.Controllers
 {
     public class OpsTenantController : ODataController
     {
-        public OpsTenantController(MyDbContext repository)
+        private readonly IMapper _mapper;
+
+        public OpsTenantController(MyDbContext repository, IMapper mapper)
         {
             Repository = repository;
+            _mapper = mapper;
         }
 
         MyDbContext Repository { get; set; }
@@ -24,15 +27,17 @@ namespace WebAPI.OData.EFCore.Controllers
         [EnableQuery(MaxExpansionDepth = 5)]
         public async Task<IActionResult> Get(ODataQueryOptions<OpsTenant> options)
         {
-            return Ok(await Repository.MandatorSet.GetAsync(Mapper.Instance, options, HandleNullPropagationOption.False));
+            return Ok(await Repository.MandatorSet.GetAsync(_mapper, options, HandleNullPropagationOption.False));
         }
     }
 
     public class CoreBuildingController : ODataController
     {
-        public CoreBuildingController(MyDbContext repository)
+        private readonly IMapper _mapper;
+        public CoreBuildingController(MyDbContext repository, IMapper mapper)
         {
             Repository = repository;
+            _mapper = mapper;
         }
 
         MyDbContext Repository { get; set; }
@@ -41,7 +46,7 @@ namespace WebAPI.OData.EFCore.Controllers
         [EnableQuery(MaxExpansionDepth = 5)]
         public async Task<IActionResult> Get(ODataQueryOptions<CoreBuilding> options)
         {
-            return Ok(await Repository.BuildingSet.GetAsync(Mapper.Instance, options, HandleNullPropagationOption.False));
+            return Ok(await Repository.BuildingSet.GetAsync(_mapper, options, HandleNullPropagationOption.False));
         }
     }
 }

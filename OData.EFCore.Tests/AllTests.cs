@@ -44,9 +44,10 @@ namespace OData.EFCore.Tests
                     {
                         options.UseInMemoryDatabase("MyDbContext");
                         options.UseInternalServiceProvider(new ServiceCollection().AddEntityFrameworkInMemoryDatabase().BuildServiceProvider());
-                    }
+                    },
+                    ServiceLifetime.Transient
                 )
-                .AddSingleton<AutoMapper.IConfigurationProvider>(new MapperConfiguration(cfg => cfg.AddProfiles(typeof(AllTests).Assembly)))
+                .AddSingleton<AutoMapper.IConfigurationProvider>(new MapperConfiguration(cfg => cfg.AddMaps(typeof(AllTests).Assembly)))
                 .AddTransient<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService))
                 .AddTransient<IApplicationBuilder>(sp => new Microsoft.AspNetCore.Builder.Internal.ApplicationBuilder(sp))
                 .AddTransient<IRouteBuilder>(sp => new RouteBuilder(sp.GetRequiredService<IApplicationBuilder>()));
@@ -222,7 +223,6 @@ namespace OData.EFCore.Tests
                     (
                         query, 
                         serviceProvider, 
-                        serviceProvider.GetRequiredService<IApplicationBuilder>(),
                         serviceProvider.GetRequiredService<IRouteBuilder>()
                     ),
                     HandleNullPropagationOption.False
@@ -269,7 +269,7 @@ namespace OData.EFCore.Tests
 
     public static class ODataHelpers
     {
-        public static ODataQueryOptions<T> GetODataQueryOptions<T>(string queryString, IServiceProvider serviceProvider, IApplicationBuilder applicationBuilder, IRouteBuilder routeBuilder) where T : class
+        public static ODataQueryOptions<T> GetODataQueryOptions<T>(string queryString, IServiceProvider serviceProvider, IRouteBuilder routeBuilder) where T : class
         {
             ODataConventionModelBuilder builder = new ODataConventionModelBuilder(serviceProvider);
 

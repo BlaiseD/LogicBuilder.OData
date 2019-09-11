@@ -29,6 +29,16 @@ namespace WebAPI.OData.EFCore
             services.AddDbContext<MyDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddOData();
 
+            services.AddSingleton<AutoMapper.IConfigurationProvider>
+            (
+                new MapperConfiguration(cfg =>
+                {
+                    cfg.AddMaps(typeof(Startup).Assembly);
+                    cfg.AllowNullCollections = true;
+                })
+            )
+            .AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
+
             services.AddMvc(options =>
             {
                 // https://blogs.msdn.microsoft.com/webdev/2018/08/27/asp-net-core-2-2-0-preview1-endpoint-routing/
@@ -65,10 +75,6 @@ namespace WebAPI.OData.EFCore
                 r.Count().Filter().OrderBy().Expand().Select().MaxTop(null);
                 r.MapODataServiceRoute("odata", "", model, new DefaultODataBatchHandler());
 
-            });
-
-            Mapper.Initialize(cfg => {
-                cfg.AddProfiles(typeof(Startup));
             });
         }
     }
