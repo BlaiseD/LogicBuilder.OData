@@ -1,4 +1,4 @@
-# LogicBuilder.OData
+# LogicBuilder.OData (Deprecated - Use AutoMapper.Extensions.OData Repository)
 Creates LINQ expressions from ODataQueryOptions and executes the query.
 
 To use, call the Get or GetAsync extension method from your OData controller.  IMapper is an AutoMapper interface.
