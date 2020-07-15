@@ -1,4 +1,4 @@
-name: .NET Core
+name: CI
 
 on:
   push:
@@ -25,3 +25,9 @@ jobs:
       run: dotnet test --no-restore --verbosity normal
     - name: Package
       run: dotnet pack .\LogicBuilder.OData.EFCore\LogicBuilder.OData.EFCore.csproj -c Release -o .\artifacts --no-build
+      run: dotnet pack .\LogicBuilder.AspNet.OData.EF6\LogicBuilder.AspNet.OData.EF6.csproj -c Release -o .\artifacts --no-build
+      run: dotnet pack .\LogicBuilder.AspNetCore.OData.EF6\LogicBuilder.AspNetCore.OData.EF6.csproj -c Release -o .\artifacts --no-build
+    - name: Push
+      run: dotnet nuget push .\artifacts\LogicBuilder.OData.EFCore.2.0.1-preview01.nupkg --api-key $Env:NUGET_API_KEY -Source https://www.nuget.org/api/v2/package
+      run: dotnet nuget push .\artifacts\LogicBuilder.AspNet.OData.EF6.2.0.1-preview01.nupkg --api-key $Env:NUGET_API_KEY -Source https://www.nuget.org/api/v2/package
+      run: dotnet nuget push .\artifacts\LogicBuilder.AspNetCore.OData.EF6.2.0.1-preview01.nupkg --api-key $Env:NUGET_API_KEY -Source https://www.nuget.org/api/v2/package
