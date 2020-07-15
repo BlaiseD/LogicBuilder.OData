@@ -12,4 +12,4 @@ jobs:
 
     steps:
     - name: Echo
-      run: echo "here"
+      run: echo "here" +  + $(VersionPrefix)
