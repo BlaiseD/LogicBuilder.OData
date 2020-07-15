@@ -24,8 +24,11 @@ jobs:
     - run: dotnet pack .\LogicBuilder.OData.EFCore\LogicBuilder.OData.EFCore.csproj -c Release -o .\artifacts --no-build
     - run: dotnet pack .\LogicBuilder.AspNet.OData.EF6\LogicBuilder.AspNet.OData.EF6.csproj -c Release -o .\artifacts --no-build
     - run: dotnet pack .\LogicBuilder.AspNetCore.OData.EF6\LogicBuilder.AspNetCore.OData.EF6.csproj -c Release -o .\artifacts --no-build
-    - name: Echo4
-      run: echo " Build.DefinitionName" + $(Build.DefinitionName)
+    - name: Set Version Number
+      run: echo '::set-env name=VERSION_NUMBER::2.0.1-preview03'
+    - run dotnet nuget push .\artifacts\LogicBuilder.OData.EFCore.{$Env:VERSION_NUMBER}.nupkg  --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
+    - run dotnet nuget push .\artifacts\LogicBuilder.AspNet.OData.EF6.{$Env:VERSION_NUMBER}.nupkg  --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
+    - run dotnet nuget push .\artifacts\LogicBuilder.AspNetCore.OData.EF6.{$Env:VERSION_NUMBER}.nupkg  --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
 #    - name: Push to NuGet
 #      env:
 #        NUGET_URL: https://api.nuget.org/v3/index.json
