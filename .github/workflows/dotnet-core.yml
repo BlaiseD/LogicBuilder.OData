@@ -24,4 +24,4 @@ jobs:
     - name: Test
       run: dotnet test --no-restore --verbosity normal
     - name: Package
-      run: dotnet pack .\LogicBuilder.OData.EFCore\LogicBuilder.OData.EFCore.csproj -c Release -o $artifacts --no-build
+      run: dotnet pack .\LogicBuilder.OData.EFCore\LogicBuilder.OData.EFCore.csproj -c Release -o .\artifacts --no-build
