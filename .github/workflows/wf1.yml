@@ -14,6 +14,8 @@ jobs:
     - name: Echo
       env:
         SOME_KEY: "ABCD"
-      run: echo "here" + $Env:SOME_KEY
-    - name: Echo
-      run: echo "here " + $Env:SOME_KEY
+      run: echo $SOME_KEY  " here" + $Env:SOME_KEY
+    - name: Echo2
+      run: echo '::set-env name=SELECTED_COLOR::green'
+    - name: Echo3
+      run: echo $Env:SELECTED_COLOR + " here " + $SELECTED_COLOR
