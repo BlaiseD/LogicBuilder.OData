@@ -12,4 +12,8 @@ jobs:
 
     steps:
     - name: Echo
+      env:
+        SOME_KEY: "ABCD"
       run: echo "here"
+    - name: Echo
+      run: echo "here " + ${SOME_KEY}
