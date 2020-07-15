@@ -26,6 +26,6 @@ jobs:
     - run: dotnet pack .\LogicBuilder.OData.EFCore\LogicBuilder.OData.EFCore.csproj -c Release -o .\artifacts --no-build
     - run: dotnet pack .\LogicBuilder.AspNet.OData.EF6\LogicBuilder.AspNet.OData.EF6.csproj -c Release -o .\artifacts --no-build
     - run: dotnet pack .\LogicBuilder.AspNetCore.OData.EF6\LogicBuilder.AspNetCore.OData.EF6.csproj -c Release -o .\artifacts --no-build
-    - run: dotnet nuget push .\artifacts\LogicBuilder.OData.EFCore.2.0.1-preview01.nupkg --api-key $Env:NUGET_API_KEY -s https://www.nuget.org/api/v2/package
-    - run: dotnet nuget push .\artifacts\LogicBuilder.AspNet.OData.EF6.2.0.1-preview01.nupkg --api-key $Env:NUGET_API_KEY -s https://www.nuget.org/api/v2/package
-    - run: dotnet nuget push .\artifacts\LogicBuilder.AspNetCore.OData.EF6.2.0.1-preview01.nupkg --api-key $Env:NUGET_API_KEY -s https://www.nuget.org/api/v2/package
+    - run: dotnet nuget push .\artifacts\LogicBuilder.OData.EFCore.2.0.1-preview01.nupkg --api-key $Env:NUGET_API_KEY -s https://api.nuget.org/v3/index.json
+    - run: dotnet nuget push .\artifacts\LogicBuilder.AspNet.OData.EF6.2.0.1-preview01.nupkg --api-key $Env:NUGET_API_KEY -s https://api.nuget.org/v3/index.json
+    - run: dotnet nuget push .\artifacts\LogicBuilder.AspNetCore.OData.EF6.2.0.1-preview01.nupkg --api-key $Env:NUGET_API_KEY -s https://api.nuget.org/v3/index.json
