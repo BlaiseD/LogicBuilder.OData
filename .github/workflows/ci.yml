@@ -1,8 +1,8 @@
 name: CI
 
-#on:
-#  push:
-#    branches: [ master ]
+on:
+  push:
+    branches: [ master ]
 
 jobs:
   build:
@@ -24,9 +24,11 @@ jobs:
     - run: dotnet pack .\LogicBuilder.OData.EFCore\LogicBuilder.OData.EFCore.csproj -c Release -o .\artifacts --no-build
     - run: dotnet pack .\LogicBuilder.AspNet.OData.EF6\LogicBuilder.AspNet.OData.EF6.csproj -c Release -o .\artifacts --no-build
     - run: dotnet pack .\LogicBuilder.AspNetCore.OData.EF6\LogicBuilder.AspNetCore.OData.EF6.csproj -c Release -o .\artifacts --no-build
-    - name: Push to NuGet
-      env:
-        NUGET_URL: https://api.nuget.org/v3/index.json
-        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-      run: ./Push.ps1
-      shell: pwsh
+    - name: Echo4
+      run: echo " Build.DefinitionName" + $(Build.DefinitionName)
+#    - name: Push to NuGet
+#      env:
+#        NUGET_URL: https://api.nuget.org/v3/index.json
+#        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+#      run: ./Push.ps1
+#      shell: pwsh
