@@ -31,7 +31,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OData.EFCore.Tests", "OData
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D940240F-B19E-4F08-8D2C-F118859EDFC2}"
 	ProjectSection(SolutionItems) = preProject
+		.github\workflows\ci.yml = .github\workflows\ci.yml
 		Directory.Build.props = Directory.Build.props
+		Push.ps1 = Push.ps1
+		.github\workflows\wf1.yml = .github\workflows\wf1.yml
 	EndProjectSection
 EndProject
 Global
