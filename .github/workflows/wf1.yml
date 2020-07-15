@@ -14,6 +14,6 @@ jobs:
     - name: Echo
       env:
         SOME_KEY: "ABCD"
-      run: echo "here" + ${SOME_KEY}
+      run: echo "here" + $Env:SOME_KEY
     - name: Echo
-      run: echo "here " + ${SOME_KEY}
+      run: echo "here " + $Env:SOME_KEY
