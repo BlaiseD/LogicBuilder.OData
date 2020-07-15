@@ -20,4 +20,4 @@ jobs:
     - name: Echo3
       run: echo "SELECTED_COLOR " + $Env:SELECTED_COLOR
     - name: Echo4
-      run: echo "Major " + $(Major) + " Build.DefinitionName" + $(Build.DefinitionName)
+      run: echo " Build.DefinitionName" + $(Build.DefinitionName)
