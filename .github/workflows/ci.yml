@@ -39,7 +39,7 @@ jobs:
     - run: dotnet nuget push $Env:NUGET_PACKAGE_PATH --skip-duplicate
 
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build --configuration Release
 
     - name: Test
       run: dotnet test --no-restore --verbosity normal
