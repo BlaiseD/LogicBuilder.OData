@@ -26,7 +26,7 @@ jobs:
     - run: dotnet pack .\LogicBuilder.AspNet.OData.EF6\LogicBuilder.AspNet.OData.EF6.csproj -c Release -o .\artifacts --no-build
     - run: dotnet pack .\LogicBuilder.AspNetCore.OData.EF6\LogicBuilder.AspNetCore.OData.EF6.csproj -c Release -o .\artifacts --no-build
 
-    - run: echo '::set-env name=VERSION_NUMBER::2.0.1-preview03'
+    - run: echo '::set-env name=VERSION_NUMBER::2.0.1-preview05'
     - run: echo '::set-env name=NUGET_URL::https://api.nuget.org/v3/index.json'
     - run: echo '::set-env name=NUGET_API_KEY::${{ secrets.NUGET_API_KEY }}'
 

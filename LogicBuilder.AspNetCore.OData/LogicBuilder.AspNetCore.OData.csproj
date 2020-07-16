@@ -4,15 +4,12 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>LogicBuilder.AspNet.OData</RootNamespace>
     <PackageId>LogicBuilder.AspNetCore.OData</PackageId>
-    <PackageVersion>2.0.0</PackageVersion>
     <Authors>BlaiseD</Authors>
     <Description>(This package has been deprecated. Use AutoMapper.AspNetCore.OData.EFCore or AutoMapper.AspNetCore.OData.EF6.)  Creates LINQ expressions from ODataQueryOptions.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>1) Update to fix "Argument types do not match" when mapping Expression.Condition filters. 2) Added a parameter to switch off null checking in OData filter expressions.</PackageReleaseNotes>
     <PackageTags>linq expressions odata ef</PackageTags>
     <Copyright>Copyright © BPS 2019</Copyright>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
-    <FileVersion>2.0.0.0</FileVersion>
     <RepositoryUrl>https://github.com/BlaiseD/LogicBuilder.OData</RepositoryUrl>
     <PackageLicense>https://github.com/BlaiseD/LogicBuilder.OData/blob/master/LICENSE</PackageLicense>
     <PackageProjectUrl>https://github.com/BlaiseD/LogicBuilder.OData</PackageProjectUrl>
