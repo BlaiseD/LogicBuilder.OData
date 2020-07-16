@@ -38,8 +38,8 @@ jobs:
     - run: echo '::set-env name=AspNetEF6::.\artifacts\LogicBuilder.AspNet.OData.EF6.${{ env.VERSION_NUMBER }}.nupkg'
 
 
-    - run: nuget push $Env:AspNetCoreEFCore --source "github"
-    - run: nuget push $Env:AspNetCoreEF6 --source $Env:NUGET_URL
+    - run: nuget push $Env:AspNetCoreEFCore -source "github"
+    - run: nuget push $Env:AspNetCoreEF6 -source $Env:NUGET_URL
 #      with:
 #        repo-token: ${{ secrets.GITHUB_TOKEN }}
 #    - run: dotnet nuget push $Env:AspNetEF6 --source $Env:NUGET_URL
