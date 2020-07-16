@@ -21,8 +21,11 @@ jobs:
 
     - name: Install dependencies
       run: dotnet restore
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
+
+    - run: dotnet build .\LogicBuilder.OData.EFCore\LogicBuilder.OData.EFCore.csproj --configuration Release --no-restore
+    - run: dotnet build .\LogicBuilder.AspNet.OData.EF6\LogicBuilder.AspNet.OData.EF6.csproj --configuration Release --no-restore
+    - run: dotnet build .\LogicBuilder.AspNetCore.OData.EF6\LogicBuilder.AspNetCore.OData.EF6.csproj --configuration Release --no-restore
+
     - name: Test
       run: dotnet test --no-restore --verbosity normal
 
