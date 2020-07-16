@@ -39,7 +39,7 @@ jobs:
     - run: dotnet nuget push $Env:NUGET_PACKAGE_PATH --skip-duplicate
 
     - name: Build
-      run: dotnet build --configuration Release
+      run: dotnet build --configuration Release --no-restore
 
     - name: Test
       run: dotnet test --no-restore --verbosity normal
@@ -51,7 +51,6 @@ jobs:
     - run: echo '::set-env name=AspNetCoreEFCore::.\artifacts\LogicBuilder.OData.EFCore.${{ env.VERSION_NUMBER }}.nupkg'
     - run: echo '::set-env name=AspNetCoreEF6::.\artifacts\LogicBuilder.AspNetCore.OData.EF6.${{ env.VERSION_NUMBER }}.nupkg'
     - run: echo '::set-env name=AspNetEF6::.\artifacts\LogicBuilder.AspNet.OData.EF6.${{ env.VERSION_NUMBER }}.nupkg'
-
 
     - run: dotnet nuget push $Env:AspNetCoreEFCore --skip-duplicate
     - run: dotnet nuget push $Env:AspNetCoreEF6 --skip-duplicate
