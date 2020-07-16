@@ -1,8 +1,8 @@
-name: CI
+name: Release
 
 on:
-  push:
-    branches: [ master ]
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -27,12 +27,13 @@ jobs:
     - run: dotnet pack .\LogicBuilder.AspNetCore.OData.EF6\LogicBuilder.AspNetCore.OData.EF6.csproj -c Release -o .\artifacts --no-build
 
     - run: echo '::set-env name=VERSION_NUMBER::2.0.1-preview03'
-    - run: echo '::set-env name=NUGET_URL::github'
+    - run: echo '::set-env name=NUGET_URL::https://api.nuget.org/v3/index.json'
+    - run: echo '::set-env name=NUGET_API_KEY::${{ secrets.NUGET_API_KEY }}'
 
     - run: echo '::set-env name=AspNetCoreEFCore::.\artifacts\LogicBuilder.OData.EFCore.${{ env.VERSION_NUMBER }}.nupkg'
     - run: echo '::set-env name=AspNetCoreEF6::.\artifacts\LogicBuilder.AspNetCore.OData.EF6.${{ env.VERSION_NUMBER }}.nupkg'
     - run: echo '::set-env name=AspNetEF6::.\artifacts\LogicBuilder.AspNet.OData.EF6.${{ env.VERSION_NUMBER }}.nupkg'
 
-    - run dotnet nuget push $Env:AspNetCoreEFCore --source $Env:NUGET_URL
-    - run dotnet nuget push $Env:AspNetCoreEF6 --source $Env:NUGET_URL
-    - run dotnet nuget push $Env:AspNetEF6 --source $Env:NUGET_URL
+    - run dotnet nuget push $Env:AspNetCoreEFCore --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
+    - run dotnet nuget push $Env:AspNetCoreEF6 --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
+    - run dotnet nuget push $Env:AspNetEF6 --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
