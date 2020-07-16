@@ -18,7 +18,6 @@ jobs:
         source-url: https://nuget.pkg.github.com/blaised/index.json
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
- #   - run: echo '::set-env name=NUGET_AUTH_TOKEN::${{secrets.GITHUB_TOKEN}}'
 
     - name: Install dependencies
       run: dotnet restore
@@ -31,7 +30,7 @@ jobs:
     - run: dotnet pack .\LogicBuilder.AspNet.OData.EF6\LogicBuilder.AspNet.OData.EF6.csproj -c Release -o .\artifacts --no-build
     - run: dotnet pack .\LogicBuilder.AspNetCore.OData.EF6\LogicBuilder.AspNetCore.OData.EF6.csproj -c Release -o .\artifacts --no-build
 
-    - run: echo '::set-env name=VERSION_NUMBER::2.0.1-preview03'
+    - run: echo '::set-env name=VERSION_NUMBER::2.0.1-preview04'
     - run: echo '::set-env name=NUGET_URL::"github"'
 
     - run: echo '::set-env name=AspNetCoreEFCore::.\artifacts\LogicBuilder.OData.EFCore.${{ env.VERSION_NUMBER }}.nupkg'
@@ -39,10 +38,6 @@ jobs:
     - run: echo '::set-env name=AspNetEF6::.\artifacts\LogicBuilder.AspNet.OData.EF6.${{ env.VERSION_NUMBER }}.nupkg'
 
 
-    - run: dotnet nuget push $Env:AspNetCoreEFCore
-    - run: dotnet nuget push $Env:AspNetCoreEF6 --source $Env:NUGET_URL
-#      with:
-#        repo-token: ${{ secrets.GITHUB_TOKEN }}
-#    - run: dotnet nuget push $Env:AspNetEF6 --source $Env:NUGET_URL
-#      with:
-#        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - run: dotnet nuget push $Env:AspNetCoreEFCore --skip-duplicate
+    - run: dotnet nuget push $Env:AspNetCoreEF6 --skip-duplicate
+    - run: dotnet nuget push $Env:AspNetEF6 --skip-duplicate
