@@ -22,7 +22,7 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
 
-    - run: echo '::set-env name=VERSION_NUMBER::2.0.1-preview05'
+    - run: echo '::set-env name=VERSION_NUMBER::2.0.1-preview06'
 
     - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData'
     - run: echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'

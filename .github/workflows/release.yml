@@ -22,21 +22,23 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
 
-    - run: echo '::set-env name=VERSION_NUMBER::2.0.1-preview05'
+    - run: echo '::set-env name=VERSION_NUMBER::2.0.1-preview06'
+    - run: echo '::set-env name=NUGET_URL::https://api.nuget.org/v3/index.json'
+    - run: echo '::set-env name=NUGET_API_KEY::${{ secrets.NUGET_API_KEY }}'
 
     - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData'
     - run: echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
     - run: echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'
     - run: dotnet build $Env:PROJECT_PATH --configuration Release --no-restore
     - run: dotnet pack $Env:PROJECT_PATH -c Release -o .\artifacts --no-build
-    - run: dotnet nuget push $Env:NUGET_PACKAGE_PATH --skip-duplicate
+    - run: dotnet nuget push $Env:NUGET_PACKAGE_PATH --skip-duplicate --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
 
     - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNetCore.OData'
     - run: echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
     - run: echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'
     - run: dotnet build $Env:PROJECT_PATH --configuration Release --no-restore
     - run: dotnet pack $Env:PROJECT_PATH -c Release -o .\artifacts --no-build
-    - run: dotnet nuget push $Env:NUGET_PACKAGE_PATH --skip-duplicate
+    - run: dotnet nuget push $Env:NUGET_PACKAGE_PATH --skip-duplicate --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
 
     - name: Build
       run: dotnet build --configuration Release --no-restore
@@ -52,8 +54,6 @@ jobs:
     - run: echo '::set-env name=AspNetCoreEF6::.\artifacts\LogicBuilder.AspNetCore.OData.EF6.${{ env.VERSION_NUMBER }}.nupkg'
     - run: echo '::set-env name=AspNetEF6::.\artifacts\LogicBuilder.AspNet.OData.EF6.${{ env.VERSION_NUMBER }}.nupkg'
 
-    - run: echo '::set-env name=NUGET_URL::https://api.nuget.org/v3/index.json'
-    - run: echo '::set-env name=NUGET_API_KEY::${{ secrets.NUGET_API_KEY }}'
     - run: dotnet nuget push $Env:AspNetCoreEFCore --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
     - run: dotnet nuget push $Env:AspNetCoreEF6 --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
     - run: dotnet nuget push $Env:AspNetEF6 --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
