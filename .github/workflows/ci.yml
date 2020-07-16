@@ -14,7 +14,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 2.2.101
+        dotnet-version: 3.1.101
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
  #   - run: echo '::set-env name=NUGET_AUTH_TOKEN::${{secrets.GITHUB_TOKEN}}'
@@ -38,7 +38,7 @@ jobs:
     - run: echo '::set-env name=AspNetEF6::.\artifacts\LogicBuilder.AspNet.OData.EF6.${{ env.VERSION_NUMBER }}.nupkg'
 
 
-    - run: dotnet nuget push $Env:AspNetCoreEFCore --source https://nuget.pkg.github.com/blaised/index.json
+    - run: dotnet nuget push $Env:AspNetCoreEFCore --source "github"
     - run: dotnet nuget push $Env:AspNetCoreEF6 --source $Env:NUGET_URL
 #      with:
 #        repo-token: ${{ secrets.GITHUB_TOKEN }}
