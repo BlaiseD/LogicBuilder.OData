@@ -16,7 +16,7 @@ jobs:
       with:
         dotnet-version: 2.2.101
       env:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
  #   - run: echo '::set-env name=NUGET_AUTH_TOKEN::${{secrets.GITHUB_TOKEN}}'
 
     - name: Install dependencies
