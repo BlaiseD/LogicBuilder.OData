@@ -34,6 +34,6 @@ jobs:
     - run: echo '::set-env name=AspNetCoreEF6::.\artifacts\LogicBuilder.AspNetCore.OData.EF6.${{ env.VERSION_NUMBER }}.nupkg'
     - run: echo '::set-env name=AspNetEF6::.\artifacts\LogicBuilder.AspNet.OData.EF6.${{ env.VERSION_NUMBER }}.nupkg'
 
-    - run dotnet nuget push $Env:AspNetCoreEFCore --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
-    - run dotnet nuget push $Env:AspNetCoreEF6 --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
-    - run dotnet nuget push $Env:AspNetEF6 --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
+    - run: dotnet nuget push $Env:AspNetCoreEFCore --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
+    - run: dotnet nuget push $Env:AspNetCoreEF6 --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
+    - run: dotnet nuget push $Env:AspNetEF6 --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
