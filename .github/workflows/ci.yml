@@ -19,9 +19,6 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-#    - name: Install dependencies
-#      run: dotnet restore
-
     - run: echo '::set-env name=VERSION_NUMBER::2.0.1-preview07'
 
     - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData'

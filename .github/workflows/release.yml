@@ -19,9 +19,6 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-#    - name: Install dependencies
-#      run: dotnet restore
-
     - run: echo '::set-env name=VERSION_NUMBER::2.0.1-preview07'
     - run: echo '::set-env name=NUGET_URL::https://api.nuget.org/v3/index.json'
     - run: echo '::set-env name=NUGET_API_KEY::${{ secrets.NUGET_API_KEY }}'

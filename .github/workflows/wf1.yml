@@ -22,6 +22,6 @@ jobs:
     - name: Set Version Number
       run: echo '::set-env name=VERSION_NUMBER::2.0.1-preview03'
     - name: Set File 1 
-      run: echo '::set-env name=File1::.\artifacts\LogicBuilder.OData.EFCore.${{ env.VERSION_NUMBER }}.nupkg}'
+      run: echo '::set-env name=File1::.\artifacts\LogicBuilder.OData.EFCore.${{ env.VERSION_NUMBER }}.nupkg'
     - name: Echo5
       run: echo "File1 " + $Env:File1
