@@ -1,0 +1,27 @@
+name: Echo
+
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Echo
+      env:
+        SOME_KEY: "ABCD"
+      run: echo "SOME_KEY " + $Env:SOME_KEY
+    - name: Echo2
+      run: echo '::set-env name=SELECTED_COLOR::green'
+    - name: Echo3 ${{Env:SELECTED_COLOR}}
+      run: echo "SELECTED_COLOR " + $Env:SELECTED_COLOR
+    - name: Set Version Number
+      run: echo '::set-env name=VERSION_NUMBER::2.0.1-preview03'
+    - name: Set File 1 
+      run: echo '::set-env name=File1::.\artifacts\LogicBuilder.OData.EFCore.${{ env.VERSION_NUMBER }}.nupkg'
+    - name: Echo5
+      run: echo "File1 " + $Env:File1
