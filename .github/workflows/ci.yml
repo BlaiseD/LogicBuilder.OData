@@ -23,7 +23,7 @@ jobs:
       run: echo '::set-env name=VERSION_NUMBER::2.0.1-preview08'
 
     - name: Build and push LogicBuilder.AspNet.OData
-    - run: |
+      run: |
         echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData'
         echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
         echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'
@@ -32,7 +32,7 @@ jobs:
         dotnet nuget push $Env:NUGET_PACKAGE_PATH --skip-duplicate
 
     - name: Build and push LogicBuilder.AspNetCore.OData
-    - run: |
+      run: |
         echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNetCore.OData'
         echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
         echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'
@@ -47,7 +47,7 @@ jobs:
       run: dotnet test --no-restore --verbosity normal
 
     - name: Pack and push LogicBuilder.OData.EFCore
-    - run: |
+      run: |
         echo '::set-env name=PROJECT_NAME::LogicBuilder.OData.EFCore'
         echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
         echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'
@@ -55,7 +55,7 @@ jobs:
         dotnet nuget push $Env:NUGET_PACKAGE_PATH --skip-duplicate
 
     - name: Pack and push LogicBuilder.AspNet.OData.EF6
-    - run: |
+      run: |
         echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData.EF6'
         echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
         echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'
@@ -63,7 +63,7 @@ jobs:
         dotnet nuget push $Env:NUGET_PACKAGE_PATH --skip-duplicate
 
     - name: Pack and push LogicBuilder.AspNetCore.OData.EF6
-    - run: |
+      run: |
         echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNetCore.OData.EF6'
         echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
         echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'

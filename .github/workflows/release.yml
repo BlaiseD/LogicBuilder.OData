@@ -19,12 +19,14 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - run: echo '::set-env name=VERSION_NUMBER::2.0.1-preview08'
-    - run: echo '::set-env name=NUGET_URL::https://api.nuget.org/v3/index.json'
-    - run: echo '::set-env name=NUGET_API_KEY::${{ secrets.NUGET_API_KEY }}'
+    - name: Set Variables
+      run: |
+        echo '::set-env name=VERSION_NUMBER::2.0.1-preview08'
+        echo '::set-env name=NUGET_URL::https://api.nuget.org/v3/index.json'
+        echo '::set-env name=NUGET_API_KEY::${{ secrets.NUGET_API_KEY }}'
 
     - name: Build and push LogicBuilder.AspNet.OData
-    - run: |
+      run: |
         echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData'
         echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
         echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'
@@ -33,7 +35,7 @@ jobs:
         dotnet nuget push $Env:NUGET_PACKAGE_PATH --skip-duplicate --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
 
     - name: Build and push LogicBuilder.AspNetCore.OData
-    - run: |
+      run: |
         echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNetCore.OData'
         echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
         echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'
@@ -48,7 +50,7 @@ jobs:
       run: dotnet test --no-restore --verbosity normal
 
     - name: Pack and push LogicBuilder.OData.EFCore
-    - run: |
+      run: |
         echo '::set-env name=PROJECT_NAME::LogicBuilder.OData.EFCore'
         echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
         echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'
@@ -56,7 +58,7 @@ jobs:
         dotnet nuget push $Env:NUGET_PACKAGE_PATH --skip-duplicate --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
 
     - name: Pack and push LogicBuilder.AspNet.OData.EF6
-    - run: |
+      run: |
         echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData.EF6'
         echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
         echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'
@@ -64,7 +66,7 @@ jobs:
         dotnet nuget push $Env:NUGET_PACKAGE_PATH --skip-duplicate --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
 
     - name: Pack and push LogicBuilder.AspNetCore.OData.EF6
-    - run: |
+      run: |
         echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNetCore.OData.EF6'
         echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
         echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'
