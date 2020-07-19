@@ -1,8 +1,8 @@
 $scriptName = $MyInvocation.MyCommand.Name
 
-echo 'Owner ${{Env.REPO_OWNER}}'
-echo 'Repo ${{Env.REPO}}'
-if ($github.repository_owner -ne "BlaiseD") {
+echo 'Owner ' +  $Env.REPO_OWNER
+echo 'Repo ' + $Env.REPO
+if ($Env.REPO_OWNER -ne "BlaiseD") {
     Write-Host "${scriptName}: Runs on BlaiseD repositories."
 } else {
     echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
