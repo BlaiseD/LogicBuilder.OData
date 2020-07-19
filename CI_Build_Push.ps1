@@ -1,7 +1,7 @@
 $scriptName = $MyInvocation.MyCommand.Name
 
-echo $github.repository_owner
-echo $github.repository
+echo 'Owner ${{Env.REPO_OWNER}}'
+echo 'Repo ${{Env.REPO}}'
 if ($github.repository_owner -ne "BlaiseD") {
     Write-Host "${scriptName}: Runs on BlaiseD repositories."
 } else {

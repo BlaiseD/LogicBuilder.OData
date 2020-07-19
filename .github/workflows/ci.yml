@@ -20,7 +20,10 @@ jobs:
         NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Set Version Number
-      run: echo '::set-env name=VERSION_NUMBER::2.0.1-preview08'
+      run: |
+        echo '::set-env name=VERSION_NUMBER::2.0.1-preview08'
+        echo '::set-env name=REPO::${{ github.repository }}'
+        echo '::set-env name=REPO_OWNER::${{ github.repository_owner }}'
 
     - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData'
     - name: Pack and Push
