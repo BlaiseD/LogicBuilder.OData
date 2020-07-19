@@ -25,8 +25,3 @@ jobs:
       run: echo '::set-env name=File1::.\artifacts\LogicBuilder.OData.EFCore.${{ env.VERSION_NUMBER }}.nupkg'
     - name: Echo5
       run: echo "File1 " + $Env:File1
-
-    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNetCore.OData.EF6'
-    - name: Pack and Push
-      run: ./Push.ps1
-      shell: pwsh

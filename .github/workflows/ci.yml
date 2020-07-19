@@ -1,8 +1,8 @@
 name: CI
 
-#on:
-#  push:
-#    branches: [ master ]
+on:
+  push:
+    branches: [ master ]
 
 jobs:
   build:
@@ -35,16 +35,21 @@ jobs:
         dotnet nuget push $Env:NUGET_PACKAGE_PATH --skip-duplicate
 
     - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNetCore.OData'
-    - name: Set paths
-      run: |
-        echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
-        echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'
+    - name: Pack and Push
+      run: ./Push.ps1
+      shell: pwsh
 
-    - name: Build and push
-      run: |
-        dotnet build $Env:PROJECT_PATH --configuration Release
-        dotnet pack $Env:PROJECT_PATH -c Release -o .\artifacts --no-build
-        dotnet nuget push $Env:NUGET_PACKAGE_PATH --skip-duplicate
+#    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNetCore.OData'
+#    - name: Set paths
+#      run: |
+#        echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
+#        echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'
+#
+#    - name: Build and push
+#      run: |
+#        dotnet build $Env:PROJECT_PATH --configuration Release
+#        dotnet pack $Env:PROJECT_PATH -c Release -o .\artifacts --no-build
+#        dotnet nuget push $Env:NUGET_PACKAGE_PATH --skip-duplicate
 
     - name: Build All
       run: dotnet build --configuration Release
