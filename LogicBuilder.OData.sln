@@ -35,7 +35,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		CI_Build_Push.ps1 = CI_Build_Push.ps1
 		CI_Pack_Push.ps1 = CI_Pack_Push.ps1
 		Directory.Build.props = Directory.Build.props
-		.github\workflows\echo.yml = .github\workflows\echo.yml
 		.github\workflows\release.yml = .github\workflows\release.yml
 		Release_Pack_Push.ps1 = Release_Pack_Push.ps1
 	EndProjectSection

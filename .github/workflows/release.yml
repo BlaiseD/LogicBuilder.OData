@@ -35,46 +35,26 @@ jobs:
       run: dotnet test --no-restore --verbosity normal
 
     - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData'
-    - name: Set paths
-      run: |
-        echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
-        echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'
     - name: Pack and push
       run: ./Release_Pack_Push.ps1
       shell: pwsh
 
     - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNetCore.OData'
-    - name: Set paths
-      run: |
-        echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
-        echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'
     - name: Pack and push
       run: ./Release_Pack_Push.ps1
       shell: pwsh
 
     - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.OData.EFCore'
-    - name: Set paths
-      run: |
-        echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
-        echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'
     - name: Pack and push
       run: ./Release_Pack_Push.ps1
       shell: pwsh
 
     - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData.EF6'
-    - name: Set paths
-      run: |
-        echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
-        echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'
     - name: Pack and push
       run: ./Release_Pack_Push.ps1
       shell: pwsh
 
     - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNetCore.OData.EF6'
-    - name: Set paths
-      run: |
-        echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
-        echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'
     - name: Pack and push
       run: ./Release_Pack_Push.ps1
       shell: pwsh
