@@ -1,14 +1,12 @@
 $scriptName = $MyInvocation.MyCommand.Name
-$artifacts = "./artifacts"
 
-if ([string]::IsNullOrEmpty($Env:NUGET_API_KEY)) {
-    Write-Host "${scriptName}: NUGET_API_KEY is empty or not set. Skipped pushing package(s)."
+echo github.repository_owner
+echo github.repository
+if (github.repository_owner -ne "BlaiseD") {
+    Write-Host "${scriptName}: Runs on BlaiseD repositories."
 } else {
-    Get-ChildItem $artifacts -Filter "*.nupkg" | ForEach-Object {
-        Write-Host "$($scriptName): Pushing $($_.Name)"
-        dotnet nuget push $_ --source $Env:NUGET_URL --api-key $Env:NUGET_API_KEY
-        if ($lastexitcode -ne 0) {
-            throw ("Exec: " + $errorMessage)
-        }
-    }
+    echo '::set-env name=PROJECT_PATH::.\${{ env.PROJECT_NAME }}\${{ env.PROJECT_NAME }}.csproj'
+    echo '::set-env name=NUGET_PACKAGE_PATH::.\artifacts\${{ env.PROJECT_NAME }}.${{ env.VERSION_NUMBER }}.nupkg'
+    echo $Env.PROJECT_PATH
+    echo $Env.NUGET_PACKAGE_PATH
 }
