@@ -1,5 +1,5 @@
-Write-Host "Owner ${$Env:REPO_OWNER}"
-Write-Host "Repository ${$Env:REPO}"
+Write-Host "Owner ${Env:REPO_OWNER}"
+Write-Host "Repository ${Env:REPO}"
 
 
 
@@ -18,7 +18,7 @@ Write-Host "Package Path ${$NUGET_PACKAGE_PATH}"
 
 dotnet build $PROJECT_PATH --configuration Release
 
-$DLL_PATH = ".\$($Env:PROJECT_NAME)\bin\Debug\netstandard2.0\$($Env:PROJECT_NAME).dll"
+$DLL_PATH = ".\$($Env:PROJECT_NAME)\bin\Release\netstandard2.0\$($Env:PROJECT_NAME).dll"
 
 $item = (get-item $DLL_PATH)
 Write-Host (get-item $DLL_PATH).VersionInfo.ProductMajorPart
