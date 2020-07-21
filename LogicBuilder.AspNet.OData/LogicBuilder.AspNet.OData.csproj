@@ -14,6 +14,7 @@
     <PackageProjectUrl>https://github.com/BlaiseD/LogicBuilder.OData</PackageProjectUrl>
     <AssemblyOriginatorKeyFile>..\LogicBuilder.Rules.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
+    <MinVerTagPrefix>v</MinVerTagPrefix>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,6 +29,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.OData" Version="7.2.1" />
+    <PackageReference Include="MinVer" Version="2.3.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>

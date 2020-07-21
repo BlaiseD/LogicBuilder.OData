@@ -15,6 +15,7 @@
     <PackageProjectUrl>https://github.com/BlaiseD/LogicBuilder.OData</PackageProjectUrl>
     <AssemblyOriginatorKeyFile>..\LogicBuilder.Rules.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
+    <MinVerTagPrefix>v</MinVerTagPrefix>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,6 +26,10 @@
     <PackageReference Include="AutoMapper.Extensions.ExpressionMapping" Version="3.0.1" />
     <PackageReference Include="EntityFramework" Version="6.2.0" />
     <PackageReference Include="LogicBuilder.AspNet.OData" Version="2.0.1-preview09" />
+    <PackageReference Include="MinVer" Version="2.3.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
