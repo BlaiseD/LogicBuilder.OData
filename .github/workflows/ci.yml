@@ -30,6 +30,7 @@ jobs:
       run: ./CI_Build_Push.ps1
       shell: pwsh
 
+
 #    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNetCore.OData'
 #    - name: Build and Push
 #      run: ./CI_Build_Push.ps1
