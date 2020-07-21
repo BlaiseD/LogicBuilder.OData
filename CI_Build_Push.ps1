@@ -13,12 +13,12 @@ $PROJECT_PATH = ".\$($Env:PROJECT_NAME)\$($Env:PROJECT_NAME).csproj"
 #ProductBuildPart   : 7601
 #ProductPrivatePart : 17767
 
-Write-Host "Project Path ${$PROJECT_PATH}"
-Write-Host "Package Path ${$NUGET_PACKAGE_PATH}"
+Write-Host "Project Path ${PROJECT_PATH}"
+Write-Host "Package Path ${NUGET_PACKAGE_PATH}"
 
 dotnet build $PROJECT_PATH --configuration Release
 
-$DLL_PATH = ".\$($Env:PROJECT_NAME)\bin\Release\netstandard2.0\$($Env:PROJECT_NAME).dll"
+$DLL_PATH = ".\$($Env:PROJECT_NAME)\bin\Release\net461\$($Env:PROJECT_NAME).dll"
 
 $item = (get-item $DLL_PATH)
 Write-Host (get-item $DLL_PATH).VersionInfo.ProductMajorPart
