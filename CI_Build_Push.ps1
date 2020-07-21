@@ -21,10 +21,6 @@ dotnet build $PROJECT_PATH --configuration Release
 $DLL_PATH = ".\$($Env:PROJECT_NAME)\bin\Release\net461\$($Env:PROJECT_NAME).dll"
 
 $item = (get-item $DLL_PATH)
-Write-Host (get-item $DLL_PATH).VersionInfo.ProductMajorPart
-Write-Host (get-item $DLL_PATH).VersionInfo.ProductMinorPart
-Write-Host (get-item $DLL_PATH).VersionInfo.ProductBuildPart
-Write-Host (get-item $DLL_PATH).VersionInfo.ProductPrivatePart
 
 $fileVersion = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($DLL_PATH).FileVersion
 $productVersion = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($DLL_PATH).ProductVersion
@@ -32,7 +28,9 @@ $productVersion = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($DLL_PATH
 Write-Host "fileVersion ${fileVersion}"
 Write-Host "productVersion ${productVersion}"
 
-$version = "$($item.VersionInfo.ProductMajorPart).$($item.VersionInfo.ProductMinorPart).$($item.VersionInfo.ProductBuildPart)" 
+Write-Host "item.ProductVersion ${$item.ProductVersion}"
+Write-Host "item.FileVersion ${$item.FileVersion}"
+$version = $item.ProductVersion
 
 $NUGET_PACKAGE_PATH = ".\artifacts\$($Env:PROJECT_NAME).$($version).nupkg"
 
