@@ -26,11 +26,17 @@ Write-Host (get-item $DLL_PATH).VersionInfo.ProductMinorPart
 Write-Host (get-item $DLL_PATH).VersionInfo.ProductBuildPart
 Write-Host (get-item $DLL_PATH).VersionInfo.ProductPrivatePart
 
+$fileVersion = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($DLL_PATH).FileVersion
+$productVersion = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($DLL_PATH).ProductVersion
+
+Write-Host "fileVersion ${fileVersion}"
+Write-Host "productVersion ${productVersion}"
+
 $version = "$($item.VersionInfo.ProductMajorPart).$($item.VersionInfo.ProductMinorPart).$($item.VersionInfo.ProductBuildPart)" 
 
-$NUGET_PACKAGE_PATH = ".\artifacts\$($Env:PROJECT_NAME).$($item).nupkg"
+$NUGET_PACKAGE_PATH = ".\artifacts\$($Env:PROJECT_NAME).$($version).nupkg"
 
-if ($Env:REPO_OWNER -ne "BlaiseD") {
+if ($Env:REPO_OWNER -ne "BlaiseD11") {
     Write-Host "${scriptName}: Runs on BlaiseD repositories."
 } else {
     dotnet pack $PROJECT_PATH -c Release -o .\artifacts --no-build
