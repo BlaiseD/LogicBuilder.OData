@@ -26,7 +26,7 @@ jobs:
         echo '::set-env name=VERSION_NUMBER::2.0.1-preview09'
         echo '::set-env name=REPO::${{ github.repository }}'
         echo '::set-env name=REPO_OWNER::${{ github.repository_owner }}'
-        echo '::set-env name=GITHUB_REF::${{ $env:GITHUB_REF }}'
+        echo '::set-env name=GITHUB_REF::${{ GITHUB_REF }}'
         echo '::set-env name=REF::${{ github.ref }}'
 
     - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData'
