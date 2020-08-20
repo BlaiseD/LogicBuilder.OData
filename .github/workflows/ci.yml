@@ -31,12 +31,20 @@ jobs:
         echo '::set-env name=TAGS::${Env.GITHUB_REF#refs/tags/}'
         echo '::set-env name=DETAILS::${{ toJson(github) }}'
 
-    - run: echo "DETAILS " + "$DETAILS"
+    - run: echo "$Env:DETAILS"
 
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
+    - name: Dump job context
+      env:
+        JOB_CONTEXT: ${{ toJson(job) }}
+      run: echo "$JOB_CONTEXT"
+    - name: Dump steps context
+      env:
+        STEPS_CONTEXT: ${{ toJson(steps) }}
+      run: echo "$STEPS_CONTEXT"
 
     - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData'
     - name: Build and Push
