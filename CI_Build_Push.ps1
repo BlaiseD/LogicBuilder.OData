@@ -38,9 +38,9 @@ $version = $item.ProductVersion
 
 $NUGET_PACKAGE_PATH = ".\artifacts\$($Env:PROJECT_NAME).$($version).nupkg"
 
-if ($Env:REPO_OWNER -ne "BlaiseD11") {
+if ($Env:REPO_OWNER -ne "BlaiseD") {
     Write-Host "${scriptName}: Runs on BlaiseD repositories."
 } else {
     dotnet pack $PROJECT_PATH -c Release -o .\artifacts --no-build
-    dotnet nuget push $NUGET_PACKAGE_PATH --skip-duplicate
+#    dotnet nuget push $NUGET_PACKAGE_PATH --skip-duplicate
 }
