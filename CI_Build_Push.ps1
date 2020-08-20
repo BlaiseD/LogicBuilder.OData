@@ -1,3 +1,4 @@
+Write-Host "Testing Minver"
 Write-Host "Owner ${Env:REPO_OWNER}"
 Write-Host "Repository ${Env:REPO}"
 
