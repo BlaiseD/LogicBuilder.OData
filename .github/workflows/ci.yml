@@ -26,38 +26,38 @@ jobs:
         echo '::set-env name=VERSION_NUMBER::2.0.1-preview09'
         echo '::set-env name=REPO::${{ github.repository }}'
         echo '::set-env name=REPO_OWNER::${{ github.repository_owner }}'
-        echo '::set-env name=GITHUB_REF::${Env.GITHUB_REF}'
-        echo '::set-env name=REF::${{ github.ref }}'
-        echo '::set-env name=TAGS::${Env.GITHUB_REF#refs/tags/}'
-        echo '::set-env name=DETAILS::${{ toJson(github) }}'
+#        echo '::set-env name=GITHUB_REF::${Env.GITHUB_REF}'
+#        echo '::set-env name=REF::${{ github.ref }}'
+#        echo '::set-env name=TAGS::${Env.GITHUB_REF#refs/tags/}'
+#        echo '::set-env name=DETAILS::${{ toJson(github) }}'
 
-    - run: echo "$Env:DETAILS"
-
-    - name: Dump GitHub context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
-    - name: Dump job context
-      env:
-        JOB_CONTEXT: ${{ toJson(job) }}
-      run: echo "$JOB_CONTEXT"
-    - name: Dump steps context
-      env:
-        STEPS_CONTEXT: ${{ toJson(steps) }}
-      run: echo "$STEPS_CONTEXT"
-
-    - name: Dump runner context
-      env:
-        RUNNER_CONTEXT: ${{ toJson(runner) }}
-      run: echo "$RUNNER_CONTEXT"
-    - name: Dump strategy context
-      env:
-        STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-      run: echo "$STRATEGY_CONTEXT"
-    - name: Dump matrix context
-      env:
-        MATRIX_CONTEXT: ${{ toJson(matrix) }}
-      run: echo "$MATRIX_CONTEXT"
+#    - run: echo "$Env:DETAILS"
+#
+#    - name: Dump GitHub context
+#      env:
+#        GITHUB_CONTEXT: ${{ toJson(github) }}
+#      run: echo "$GITHUB_CONTEXT"
+#    - name: Dump job context
+#      env:
+#        JOB_CONTEXT: ${{ toJson(job) }}
+#      run: echo "$JOB_CONTEXT"
+#    - name: Dump steps context
+#      env:
+#        STEPS_CONTEXT: ${{ toJson(steps) }}
+#      run: echo "$STEPS_CONTEXT"
+#
+#    - name: Dump runner context
+#      env:
+#        RUNNER_CONTEXT: ${{ toJson(runner) }}
+#      run: echo "$RUNNER_CONTEXT"
+#    - name: Dump strategy context
+#      env:
+#        STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+#      run: echo "$STRATEGY_CONTEXT"
+#    - name: Dump matrix context
+#      env:
+#        MATRIX_CONTEXT: ${{ toJson(matrix) }}
+#      run: echo "$MATRIX_CONTEXT"
 
     - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData'
     - name: Build and Push
