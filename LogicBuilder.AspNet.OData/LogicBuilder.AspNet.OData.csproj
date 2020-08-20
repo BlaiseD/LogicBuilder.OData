@@ -17,10 +17,6 @@
     <MinVerTagPrefix>v</MinVerTagPrefix>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <MinVerMinimumMajorMinor>2.0</MinVerMinimumMajorMinor>
-  </PropertyGroup>
-
   <ItemGroup>
     <Compile Include="..\LogicBuilder.AspNetCore.OData\LinqExtensions.cs" Link="LinqExtensions.cs" />
     <Compile Include="..\LogicBuilder.AspNetCore.OData\Properties\Resources.Designer.cs" Link="Properties\Resources.Designer.cs" />
