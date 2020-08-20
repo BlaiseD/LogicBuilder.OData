@@ -1,7 +1,8 @@
 Write-Host "Testing Minver"
 Write-Host "Owner ${Env:REPO_OWNER}"
 Write-Host "Repository ${Env:REPO}"
-Write-Host "TAG ${Env:TAG_NO}"
+Write-Host "GITHUB_REF ${Env:GITHUB_REF}"
+Write-Host "REF ${Env:REF}"
 
 
 $PROJECT_PATH = ".\$($Env:PROJECT_NAME)\$($Env:PROJECT_NAME).csproj"
