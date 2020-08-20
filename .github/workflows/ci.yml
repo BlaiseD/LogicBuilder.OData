@@ -32,6 +32,12 @@ jobs:
         echo '::set-env name=DETAILS::${{ toJson(github) }}'
 
     - run: echo "DETAILS " + "$DETAILS"
+
+    - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
     - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData'
     - name: Build and Push
       run: ./CI_Build_Push.ps1
