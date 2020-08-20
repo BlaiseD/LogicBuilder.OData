@@ -28,6 +28,7 @@ jobs:
         echo '::set-env name=NUGET_API_KEY::${{ secrets.NUGET_API_KEY }}'
         echo '::set-env name=REPO::${{ github.repository }}'
         echo '::set-env name=REPO_OWNER::${{ github.repository_owner }}'
+        echo '::set-env name=TAG_NO::${{ steps.vars.outputs.tag }}'
 
     - name: Restore
       run: dotnet restore

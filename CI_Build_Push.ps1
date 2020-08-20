@@ -1,7 +1,7 @@
 Write-Host "Testing Minver"
 Write-Host "Owner ${Env:REPO_OWNER}"
 Write-Host "Repository ${Env:REPO}"
-
+Write-Host "TAG ${Env:TAG_NO}"
 
 
 $PROJECT_PATH = ".\$($Env:PROJECT_NAME)\$($Env:PROJECT_NAME).csproj"
