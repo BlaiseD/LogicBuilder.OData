@@ -27,11 +27,13 @@ jobs:
         echo "REPO=${{ github.repository }}" >> $GITHUB_ENV
         echo "REPO_OWNER=${{ github.repository_owner }}" >> $GITHUB_ENV
 
-
+    - run: echo "action_state=yellow" >> $GITHUB_ENV
     - run: echo "VERSION_NUMBER $VERSION_NUMBER"
     - run: echo $VERSION_NUMBER
     - run: echo "REPO $Env:REPO"
     - run: echo $REPO
+    - run: echo "action_state=yellow" >> $GITHUB_ENV
+    - run: echo $action_state
 #        echo '::set-env name=VERSION_NUMBER::2.0.1-preview09'
 #        echo '::set-env name=REPO::${{ github.repository }}'
 #        echo '::set-env name=REPO_OWNER::${{ github.repository_owner }}'
