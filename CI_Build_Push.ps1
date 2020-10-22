@@ -5,6 +5,11 @@ Write-Host $Env:REPO_OWNER
 Write-Host $Env:REPO
 Write-Host "Owner $Env:REPO_OWNER"
 Write-Host "Repository $Env:REPO"
+
+Write-Host "VERSION_NUMBER $VERSION_NUMBER"
+Write-Host $Env:VERSION_NUMBER
+Write-Host "VERSION_NUMBER $Env:VERSION_NUMBER"
+
 #Write-Host "GITHUB_REF ${Env:GITHUB_REF}"
 #Write-Host "REF ${Env:REF}"
 #Write-Host "TAGS ${Env:TAGS}"
