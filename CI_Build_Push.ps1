@@ -1,6 +1,6 @@
 Write-Host "Testing Minver"
-Write-Host "Owner ${Env:REPO_OWNER}"
-Write-Host "Repository ${Env:REPO}"
+Write-Host "Owner $REPO_OWNER"
+Write-Host "Repository $REPO"
 #Write-Host "GITHUB_REF ${Env:GITHUB_REF}"
 #Write-Host "REF ${Env:REF}"
 #Write-Host "TAGS ${Env:TAGS}"
