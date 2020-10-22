@@ -23,9 +23,12 @@ jobs:
 
     - name: Set Variables
       run: |
-        echo '::set-env name=VERSION_NUMBER::2.0.1-preview09'
-        echo '::set-env name=REPO::${{ github.repository }}'
-        echo '::set-env name=REPO_OWNER::${{ github.repository_owner }}'
+        echo "VERSION_NUMBER=2.0.1-preview09" >> $GITHUB_ENV
+        echo "REPO=${{ github.repository }}" >> $GITHUB_ENV
+        echo "REPO_OWNER=${{ github.repository_owner }}" >> $GITHUB_ENV
+#        echo '::set-env name=VERSION_NUMBER::2.0.1-preview09'
+#        echo '::set-env name=REPO::${{ github.repository }}'
+#        echo '::set-env name=REPO_OWNER::${{ github.repository_owner }}'
 #        echo '::set-env name=GITHUB_REF::${Env.GITHUB_REF}'
 #        echo '::set-env name=REF::${{ github.ref }}'
 #        echo '::set-env name=TAGS::${Env.GITHUB_REF#refs/tags/}'
