@@ -27,12 +27,11 @@ jobs:
         echo "REPO=${{ github.repository }}" >> $GITHUB_ENV
         echo "REPO_OWNER=${{ github.repository_owner }}" >> $GITHUB_ENV
 
-    - run: echo "action_state=yellow" >> $GITHUB_ENV
     - run: echo "VERSION_NUMBER $VERSION_NUMBER"
     - run: echo $VERSION_NUMBER
     - run: echo "REPO $Env:REPO"
     - run: echo $REPO
-    - run: echo "action_state=yellow" >> $GITHUB_ENV
+    - run: echo "action_state=yellow" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
     - run: echo $Env:action_state
     - run: echo ${env:action_state}
     - run: echo "action_state1 $Env:action_state"
