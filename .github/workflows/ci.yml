@@ -34,7 +34,10 @@ jobs:
     - run: echo $REPO
     - run: echo "action_state=yellow" >> $GITHUB_ENV
     - run: echo $Env:action_state
-    - run: echo "action_state $Env:action_state"
+    - run: echo ${env:action_state}
+    - run: echo "action_state1 $Env:action_state"
+    - run: echo "action_state2 ${env:action_state}"
+    - run: echo 'action_state3 ${env:action_state}'
 
 #        echo '::set-env name=VERSION_NUMBER::2.0.1-preview09'
 #        echo '::set-env name=REPO::${{ github.repository }}'
