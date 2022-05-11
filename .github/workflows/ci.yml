@@ -80,28 +80,28 @@ jobs:
       shell: pwsh
 
 
-#    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNetCore.OData'
-#    - name: Build and Push
-#      run: ./CI_Build_Push.ps1
-#      shell: pwsh
-#
-#    - name: Build All
-#      run: dotnet build --configuration Release
-#
-#    - name: Test
-#      run: dotnet test --no-restore --verbosity normal
-#
-#    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.OData.EFCore'
-#    - name: Pack and push
-#      run: ./CI_Pack_Push.ps1
-#      shell: pwsh
-#
-#    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData.EF6'
-#    - name: Pack and push
-#      run: ./CI_Pack_Push.ps1
-#      shell: pwsh
-#
-#    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNetCore.OData.EF6'
-#    - name: Pack and push
-#      run: ./CI_Pack_Push.ps1
-#      shell: pwsh
+    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNetCore.OData'
+    - name: Build and Push
+      run: ./CI_Build_Push.ps1
+      shell: pwsh
+
+    - name: Build All
+      run: dotnet build --configuration Release
+
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
+
+    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.OData.EFCore'
+    - name: Pack and push
+      run: ./CI_Pack_Push.ps1
+      shell: pwsh
+
+    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData.EF6'
+    - name: Pack and push
+      run: ./CI_Pack_Push.ps1
+      shell: pwsh
+
+    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNetCore.OData.EF6'
+    - name: Pack and push
+      run: ./CI_Pack_Push.ps1
+      shell: pwsh
