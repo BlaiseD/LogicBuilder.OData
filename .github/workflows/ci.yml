@@ -74,14 +74,15 @@ jobs:
 #        MATRIX_CONTEXT: ${{ toJson(matrix) }}
 #      run: echo "$MATRIX_CONTEXT"
 
-    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData'
-    - name: Build and Push
+    - name: Build and Push LogicBuilder.AspNet.OData
+      env:
+        PROJECT_NAME: LogicBuilder.AspNet.OData
       run: ./CI_Build_Push.ps1
       shell: pwsh
 
-
-    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNetCore.OData'
-    - name: Build and Push
+    - name: Build and Push LogicBuilder.AspNetCore.OData
+      env:
+        PROJECT_NAME: LogicBuilder.AspNetCore.OData
       run: ./CI_Build_Push.ps1
       shell: pwsh
 
@@ -91,17 +92,20 @@ jobs:
     - name: Test
       run: dotnet test --no-restore --verbosity normal
 
-    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.OData.EFCore'
-    - name: Pack and push
+    - name: Pack and push LogicBuilder.OData.EFCore
+      env:
+        PROJECT_NAME: LogicBuilder.OData.EFCore
       run: ./CI_Pack_Push.ps1
       shell: pwsh
 
-    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData.EF6'
-    - name: Pack and push
+    - name: Pack and push LogicBuilder.AspNet.OData.EF6
+      env:
+        PROJECT_NAME: LogicBuilder.AspNet.OData.EF6
       run: ./CI_Pack_Push.ps1
       shell: pwsh
 
-    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNetCore.OData.EF6'
-    - name: Pack and push
+    - name: Pack and push LogicBuilder.AspNetCore.OData.EF6
+      env:
+        PROJECT_NAME: LogicBuilder.AspNetCore.OData.EF6
       run: ./CI_Pack_Push.ps1
       shell: pwsh

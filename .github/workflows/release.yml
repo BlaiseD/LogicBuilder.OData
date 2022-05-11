@@ -45,27 +45,32 @@ jobs:
     - name: Test
       run: dotnet test --no-restore --verbosity normal
 
-    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData'
-    - name: Pack and push
+    - name: Pack and push LogicBuilder.AspNet.OData
+      env:
+        PROJECT_NAME: LogicBuilder.AspNet.OData
       run: ./Release_Pack_Push.ps1
       shell: pwsh
 
-    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNetCore.OData'
-    - name: Pack and push
+    - name: Pack and push LogicBuilder.AspNetCore.OData
+      env:
+        PROJECT_NAME: LogicBuilder.AspNetCore.OData
       run: ./Release_Pack_Push.ps1
       shell: pwsh
 
-    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.OData.EFCore'
-    - name: Pack and push
+    - name: Pack and push LogicBuilder.OData.EFCore
+      env:
+        PROJECT_NAME: LogicBuilder.OData.EFCore
       run: ./Release_Pack_Push.ps1
       shell: pwsh
 
-    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNet.OData.EF6'
-    - name: Pack and push
+    - name: Pack and push LogicBuilder.AspNet.OData.EF6
+      env:
+        PROJECT_NAME: LogicBuilder.AspNet.OData.EF6
       run: ./Release_Pack_Push.ps1
       shell: pwsh
 
-    - run: echo '::set-env name=PROJECT_NAME::LogicBuilder.AspNetCore.OData.EF6'
-    - name: Pack and push
+    - name: Pack and push LogicBuilder.AspNetCore.OData.EF6
+      env:
+        PROJECT_NAME: LogicBuilder.AspNetCore.OData.EF6
       run: ./Release_Pack_Push.ps1
       shell: pwsh
