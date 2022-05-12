@@ -23,7 +23,7 @@ jobs:
 
     - name: Set Variables
       run: |
-        echo "VERSION_NUMBER=2.0.1-preview09" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
+        echo "GITHUB_NUGET_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
         echo "REPO=${{ github.repository }}" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
         echo "REPO_OWNER=${{ github.repository_owner }}" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
 

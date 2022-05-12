@@ -23,12 +23,11 @@ jobs:
 
     - name: Set Variables
       run: |
-        echo "VERSION_NUMBER=2.0.1-preview09" >> $GITHUB_ENV
-        echo "NUGET_URL=https://api.nuget.org/v3/index.json" >> $GITHUB_ENV
-        echo "NUGET_API_KEY=${{ secrets.NUGET_API_KEY }}" >> $GITHUB_ENV
-        echo "REPO=${{ github.repository }}" >> $GITHUB_ENV
-        echo "REPO_OWNER=${{ github.repository_owner }}" >> $GITHUB_ENV
-        echo "TAG_NO=${{ steps.vars.outputs.tag }}" >> $GITHUB_ENV
+        echo "GITHUB_NUGET_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
+        echo "NUGET_URL=https://api.nuget.org/v3/index.json" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
+        echo "NUGET_API_KEY=${{ secrets.NUGET_API_KEY }}" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
+        echo "REPO=${{ github.repository }}" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
+        echo "REPO_OWNER=${{ github.repository_owner }}" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
 #        echo '::set-env name=VERSION_NUMBER::2.0.1-preview09'
 #        echo '::set-env name=NUGET_URL::https://api.nuget.org/v3/index.json'
 #        echo '::set-env name=NUGET_API_KEY::${{ secrets.NUGET_API_KEY }}'
