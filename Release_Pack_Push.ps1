@@ -9,7 +9,7 @@ $NUGET_PACKAGE_PATH = ".\artifacts\$($Env:PROJECT_NAME).*.nupkg"
 Write-Host $PROJECT_PATH 
 Write-Host $NUGET_PACKAGE_PATH
 
-if ($Env:REPO_OWNER -ne "BlaiseD!!!") {
+if ($Env:REPO_OWNER -ne "BlaiseD") {
     Write-Host "${scriptName}: Runs on BlaiseD repositories."
 } else {
     dotnet pack $PROJECT_PATH -c Release -o .\artifacts --no-build
