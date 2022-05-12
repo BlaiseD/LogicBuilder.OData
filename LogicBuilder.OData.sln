@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29001.49
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicBuilder.AspNetCore.OData", "LogicBuilder.AspNetCore.OData\LogicBuilder.AspNetCore.OData.csproj", "{E0B5539F-DE46-4141-9AB2-08B864712E4F}"
 EndProject
@@ -62,7 +62,6 @@ Global
 		{0DF413A6-5334-4999-B368-126A6E91F922}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DF413A6-5334-4999-B368-126A6E91F922}.Release|Any CPU.Build.0 = Release|Any CPU
 		{545D2E0A-4041-43A2-A6D0-08839D1E4AA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{545D2E0A-4041-43A2-A6D0-08839D1E4AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{545D2E0A-4041-43A2-A6D0-08839D1E4AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A80E6E7-7EED-47ED-8F83-40924C4B9DD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2A80E6E7-7EED-47ED-8F83-40924C4B9DD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
